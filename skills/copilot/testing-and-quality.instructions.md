@@ -124,10 +124,11 @@ For integration-level tests that need realistic master data.
 - **There is no `AtlScenario` and no `AtlDataHelper` class.** Both are plausible
   and neither exists.
 - Create transient test data through the ATL data-root creators or in `setUp()`.
-- Check whether the model already has a shared base test class that wraps
-  `AtlDataRootNode::construct()` and exposes the common nodes as members (e.g.
-  `invent`, `purch`, `sales`). Extend that base instead of calling
-  `AtlDataRootNode::construct()` again in every new test class.
+- If the model already has a shared base test class that wraps
+  `AtlDataRootNode::construct()` and exposes commonly-used nodes as members
+  (e.g. `invent`, `purch`, `sales`), extend that shared base instead of calling
+  `AtlDataRootNode::construct()` again in every new test class — check for one
+  before assuming you need to construct the root node yourself.
 
 ## 4. Where the eval loop fits
 
